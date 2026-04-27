@@ -1,0 +1,75 @@
+---
+---
+
+<section id="servicios" class="b-servicios" aria-labelledby="servicios-heading">
+  <div class="b-container">
+    <div class="b-servicios-header">
+      <div>
+        <div class="b-section-label b-reveal">Servicios</div>
+        <h2 class="b-servicios-h2 b-reveal b-reveal-delay-1" id="servicios-heading">
+          Todo para <span style="color:var(--red)">destacar</span>.
+        </h2>
+      </div>
+      <div class="b-tabs b-reveal b-reveal-delay-2" role="tablist" aria-label="Categorías de servicios">
+        <button class="b-tab b-tab--active" data-tab="cv"     role="tab" aria-selected="true"  id="tab-cv"     aria-controls="cards-container">CVs &amp; LinkedIn</button>
+        <button class="b-tab"               data-tab="corp"   role="tab" aria-selected="false" id="tab-corp"   aria-controls="cards-container">Corporativo</button>
+        <button class="b-tab"               data-tab="design" role="tab" aria-selected="false" id="tab-design" aria-controls="cards-container">Diseño &amp; Social</button>
+      </div>
+    </div>
+    <div class="b-cards" id="cards-container" role="tabpanel" aria-live="polite">
+    </div>
+  </div>
+</section>
+
+<script>
+  const SERVICES: Record<string, { name: string; price: string; desc: string; b: string }[]> = {
+    cv: [
+      { name: 'CV Estándar',      price: '$XXX', desc: 'Diseño profesional con redacción optimizada.',          b: 'Primera impresión impecable' },
+      { name: 'CV ATS',           price: '$XXX', desc: 'Estructura optimizada para filtros automatizados.',      b: 'Supera sistemas de reclutamiento' },
+      { name: 'CV Harvard',       price: '$XXX', desc: 'Formato académico/corporativo de alto impacto.',         b: 'Perfil sólido en entornos formales' },
+      { name: 'LinkedIn',         price: '$XXX', desc: 'Optimización completa de perfil para reclutadores.',    b: '+ visibilidad y oportunidades' },
+      { name: 'Traducción ES→EN', price: '$XXX', desc: 'Adaptación profesional al inglés.',                     b: 'Alcance internacional' },
+    ],
+    corp: [
+      { name: 'CV Empresarial',   price: '$XXX', desc: 'Perfiles profesionales para empresas o equipos.',       b: 'Imagen alineada a negocio' },
+      { name: 'Branding',         price: '$XXX', desc: 'Identidad visual y materiales profesionales.',          b: 'Posicionamiento de marca' },
+    ],
+    design: [
+      { name: 'Redes Sociales',   price: '$XXX', desc: 'Contenido visual alineado a tu identidad.',            b: 'Mayor presencia digital' },
+      { name: 'Impresos',         price: '$XXX', desc: 'Tarjetas, flyers, lonas, menús.',                      b: 'Imagen tangible' },
+    ],
+  };
+
+  const container = document.getElementById('cards-container')!;
+  const tabs = document.querySelectorAll<HTMLButtonElement>('.b-tab');
+
+  function renderCards(tab: string) {
+    container.innerHTML = SERVICES[tab].map(s => `
+      <div class="b-card" tabindex="0" role="article">
+        <div class="b-card-head">
+          <h3 class="b-card-name">${s.name}</h3>
+          <span class="b-card-price">${s.price}</span>
+        </div>
+        <p class="b-card-desc">${s.desc}</p>
+        <div class="b-card-foot">
+          <div class="b-card-benefit-label">✓ Beneficio</div>
+          <div class="b-card-benefit">${s.b}</div>
+        </div>
+      </div>
+    `).join('');
+  }
+
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      tabs.forEach(t => {
+        t.classList.remove('b-tab--active');
+        t.setAttribute('aria-selected', 'false');
+      });
+      tab.classList.add('b-tab--active');
+      tab.setAttribute('aria-selected', 'true');
+      renderCards(tab.dataset.tab!);
+    });
+  });
+
+  renderCards('cv');
+</script>

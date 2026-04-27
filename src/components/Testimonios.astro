@@ -1,0 +1,40 @@
+---
+const testimonials = [
+  {
+    text: 'En 3 semanas tenía 4 entrevistas agendadas después de 6 meses sin respuesta.',
+    name: 'María G.',
+    role: 'Gerente Operaciones',
+  },
+  {
+    text: 'LinkedIn empezó a recibir mensajes de reclutadores top-tier que antes me ignoraban.',
+    name: 'Andrés P.',
+    role: 'Ing. Industrial',
+  },
+  {
+    text: 'No es solo un CV bonito. Me enseñaron a posicionarme. Vale cada peso invertido.',
+    name: 'Laura M.',
+    role: 'Dir. Marketing',
+  },
+];
+---
+
+<section id="testimonios" class="b-testi" aria-labelledby="testimonios-heading">
+  <div class="b-container">
+    <div class="b-section-label" style="color:var(--red)">Testimonios</div>
+    <h2 class="b-testi-h2 b-reveal" id="testimonios-heading">
+      Quienes ya <span style="color:var(--red)">dieron el paso</span>.
+    </h2>
+    <div class="b-testi-grid">
+      {testimonials.map((t, i) => (
+        <blockquote class={`b-testi-card b-reveal b-reveal-delay-${i + 1}`}>
+          <span class="b-testi-quote" aria-hidden="true">"</span>
+          <p class="b-testi-text">{t.text}</p>
+          <footer class="b-testi-footer">
+            <div class="b-testi-name">{t.name}</div>
+            <div class="b-testi-role">{t.role}</div>
+          </footer>
+        </blockquote>
+      ))}
+    </div>
+  </div>
+</section>

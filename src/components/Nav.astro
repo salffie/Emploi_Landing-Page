@@ -1,0 +1,62 @@
+---
+const WA_URL = 'https://wa.me/528448704878';
+---
+
+<nav class="b-nav" aria-label="Navegación principal">
+  <a href="/" class="b-nav-logo" aria-label="emploi — Inicio">
+    <div class="b-nav-icon" aria-hidden="true">e</div>
+    <span class="b-nav-wordmark">emploi</span>
+  </a>
+  <div class="b-nav-links">
+    <a href="#servicios">Servicios</a>
+    <a href="#proceso">Proceso</a>
+    <a href="#testimonios">Testimonios</a>
+    <a href="#faq">FAQ</a>
+  </div>
+  <div class="b-nav-right">
+    <a
+      href={WA_URL}
+      class="b-nav-cta"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Contactar por WhatsApp"
+    >
+      WhatsApp →
+    </a>
+    <button
+      class="b-nav-hamburger"
+      id="nav-hamburger"
+      aria-expanded="false"
+      aria-controls="nav-mobile"
+      aria-label="Abrir menú de navegación"
+    >
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <div class="b-nav-mobile" id="nav-mobile" aria-hidden="true">
+    <a href="#servicios">Servicios</a>
+    <a href="#proceso">Proceso</a>
+    <a href="#testimonios">Testimonios</a>
+    <a href="#faq">FAQ</a>
+    <a href={WA_URL} target="_blank" rel="noopener noreferrer">WhatsApp →</a>
+  </div>
+</nav>
+
+<script>
+  const hamburger = document.getElementById('nav-hamburger')!;
+  const mobileNav = document.getElementById('nav-mobile')!;
+
+  hamburger.addEventListener('click', () => {
+    const open = mobileNav.classList.toggle('is-open');
+    hamburger.setAttribute('aria-expanded', String(open));
+    mobileNav.setAttribute('aria-hidden', String(!open));
+  });
+
+  mobileNav.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      mobileNav.classList.remove('is-open');
+      hamburger.setAttribute('aria-expanded', 'false');
+      mobileNav.setAttribute('aria-hidden', 'true');
+    });
+  });
+</script>

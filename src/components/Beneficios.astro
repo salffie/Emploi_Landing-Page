@@ -1,0 +1,27 @@
+---
+const benefits = [
+  { n: '01', t: '+ ENTREVISTAS',       d: 'Mayor probabilidad de conseguir entrevistas.',    first: true },
+  { n: '02', t: 'PERFIL COMPETITIVO',  d: 'Optimizado para reclutadores actuales.',          first: false },
+  { n: '03', t: '+ POSICIONAMIENTO',   d: 'Frente a otros candidatos en tu sector.',         first: false },
+  { n: '04', t: 'IMAGEN SÓLIDA',       d: 'Para empleo o para tu propio negocio.',           first: false },
+  { n: '05', t: 'ALCANCE GLOBAL',      d: 'Oportunidades nacionales e internacionales.',     first: false },
+];
+---
+
+<section class="b-beneficios" aria-labelledby="beneficios-heading">
+  <div class="b-container">
+    <div class="b-section-label b-reveal">Beneficios</div>
+    <h2 class="b-beneficios-h2 b-reveal b-reveal-delay-1" id="beneficios-heading">
+      Lo que <span style="color:var(--red)">ganas</span>.
+    </h2>
+    <div class="b-bens">
+      {benefits.map((ben, i) => (
+        <div class={`b-ben${ben.first ? ' b-ben--first' : ''} b-reveal b-reveal-delay-${Math.min(i, 4)}`}>
+          <span class="b-ben-n">{ben.n}</span>
+          <span class="b-ben-t">{ben.t}</span>
+          <span class="b-ben-d">{ben.d}</span>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

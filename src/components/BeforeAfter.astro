@@ -1,0 +1,98 @@
+---
+---
+
+<section class="b-ba" aria-labelledby="ba-heading">
+  <div class="b-container">
+    <div class="b-ba-title b-reveal">
+      <div class="b-section-label">Antes / Después</div>
+      <h2 class="b-ba-h2" id="ba-heading">
+        La diferencia es <span style="color:var(--red)">evidente</span>.
+      </h2>
+    </div>
+    <div
+      class="b-slider"
+      id="ba-slider"
+      role="img"
+      aria-label="Comparación visual antes y después de un CV optimizado por emploi"
+    >
+      <!-- After (right side) -->
+      <div class="b-slider-after">
+        <div class="b-cv-slide b-cv-slide--after">
+          <div class="b-cv-slide-bar" aria-hidden="true"></div>
+          <div class="b-cv-slide-body">
+            <div class="b-cv-slide-name--after">Nombre Apellido</div>
+            <div class="b-cv-slide-role--after">DIRECTOR FINANCIERO · CFO</div>
+            <div class="b-cv-slide-section">
+              <div class="b-cv-slide-sec-label--after">EXPERIENCIA</div>
+              <div class="b-cv-slide-bar-thick" style="width:80%"></div><div class="b-cv-slide-bar-thin" style="width:58%"></div>
+              <div class="b-cv-slide-bar-thick" style="width:72%"></div><div class="b-cv-slide-bar-thin" style="width:65%"></div>
+              <div class="b-cv-slide-bar-thick" style="width:68%"></div><div class="b-cv-slide-bar-thin" style="width:50%"></div>
+            </div>
+            <div class="b-cv-slide-section">
+              <div class="b-cv-slide-sec-label--after">EDUCACIÓN</div>
+              <div class="b-cv-slide-bar-thick" style="width:60%"></div><div class="b-cv-slide-bar-thin" style="width:75%"></div>
+              <div class="b-cv-slide-bar-thick" style="width:55%"></div><div class="b-cv-slide-bar-thin" style="width:45%"></div>
+            </div>
+            <div class="b-cv-slide-section">
+              <div class="b-cv-slide-sec-label--after">HABILIDADES</div>
+              <div class="b-cv-slide-bar-thick" style="width:85%"></div><div class="b-cv-slide-bar-thin" style="width:62%"></div>
+              <div class="b-cv-slide-bar-thick" style="width:70%"></div><div class="b-cv-slide-bar-thin" style="width:48%"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Before (clipped, left side) -->
+      <div class="b-slider-before" id="ba-before" style="clip-path:inset(0 50% 0 0)">
+        <div class="b-cv-slide b-cv-slide--before">
+          <div class="b-cv-slide-body">
+            <div class="b-cv-slide-name--before">Nombre Apellido</div>
+            <div class="b-cv-slide-role--before">Contador / Administrador</div>
+            <div class="b-cv-slide-section">
+              <div class="b-cv-slide-sec-label--before">EXPERIENCIA</div>
+              <div style="height:5px;width:78%;background:#bbb;margin-bottom:4px"></div><div style="height:4px;width:60%;background:#d5d5d5;margin-bottom:8px"></div>
+              <div style="height:5px;width:65%;background:#bbb;margin-bottom:4px"></div><div style="height:4px;width:50%;background:#d5d5d5;margin-bottom:8px"></div>
+              <div style="height:5px;width:55%;background:#bbb;margin-bottom:4px"></div><div style="height:4px;width:70%;background:#d5d5d5;margin-bottom:8px"></div>
+            </div>
+            <div class="b-cv-slide-section">
+              <div class="b-cv-slide-sec-label--before">EDUCACIÓN</div>
+              <div style="height:5px;width:60%;background:#bbb;margin-bottom:4px"></div><div style="height:4px;width:75%;background:#d5d5d5;margin-bottom:8px"></div>
+              <div style="height:5px;width:50%;background:#bbb;margin-bottom:4px"></div><div style="height:4px;width:45%;background:#d5d5d5;margin-bottom:8px"></div>
+            </div>
+            <div class="b-cv-slide-section">
+              <div class="b-cv-slide-sec-label--before">HABILIDADES</div>
+              <div style="height:5px;width:72%;background:#bbb;margin-bottom:4px"></div><div style="height:4px;width:55%;background:#d5d5d5;margin-bottom:8px"></div>
+              <div style="height:5px;width:62%;background:#bbb;margin-bottom:4px"></div><div style="height:4px;width:48%;background:#d5d5d5;margin-bottom:8px"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Handle -->
+      <div class="b-slider-handle" id="ba-handle" style="left:50%" aria-hidden="true">
+        <div class="b-slider-knob">⇔</div>
+      </div>
+      <div class="b-slider-label-before" aria-hidden="true">ANTES</div>
+      <div class="b-slider-label-after"  aria-hidden="true">DESPUÉS</div>
+    </div>
+  </div>
+</section>
+
+<script>
+  const slider  = document.getElementById('ba-slider')!;
+  const before  = document.getElementById('ba-before')!;
+  const handle  = document.getElementById('ba-handle')!;
+  let dragging  = false;
+
+  function setPos(x: number) {
+    const rect = slider.getBoundingClientRect();
+    const pct  = Math.max(5, Math.min(95, ((x - rect.left) / rect.width) * 100));
+    before.style.clipPath = `inset(0 ${100 - pct}% 0 0)`;
+    handle.style.left     = `${pct}%`;
+  }
+
+  slider.addEventListener('mousedown',  (e) => { dragging = true; setPos(e.clientX); });
+  window.addEventListener('mousemove',  (e) => { if (dragging) setPos(e.clientX); });
+  window.addEventListener('mouseup',    ()  => { dragging = false; });
+  slider.addEventListener('touchstart', (e) => { dragging = true; setPos(e.touches[0].clientX); }, { passive: true });
+  window.addEventListener('touchmove',  (e) => { if (dragging) setPos(e.touches[0].clientX); }, { passive: true });
+  window.addEventListener('touchend',   ()  => { dragging = false; });
+</script>

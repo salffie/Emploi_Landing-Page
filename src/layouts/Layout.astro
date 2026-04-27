@@ -1,0 +1,80 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = 'emploi — Optimiza tu CV y Consigue Entrevistas | Agencia CV México',
+  description = 'Agencia digital especializada en CVs profesionales, optimización LinkedIn y branding laboral. Más de 850 perfiles transformados. +92% de entrevistas. México.',
+} = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="keywords" content="CV profesional, curriculum vitae, optimización CV, LinkedIn México, CV ATS, branding personal, agencia CV México, Saltillo" />
+    <meta name="author" content="emploi" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://emploi.com/" />
+
+    <meta name="geo.region" content="MX" />
+    <meta name="geo.placename" content="México" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://emploi.com/" />
+    <meta property="og:title" content="emploi — Optimiza tu CV. Consigue Entrevistas." />
+    <meta property="og:description" content="Agencia digital para imagen laboral. CVs profesionales, LinkedIn, Branding y más. +850 perfiles transformados en México." />
+    <meta property="og:image" content="https://emploi.com/og-image.jpg" />
+    <meta property="og:locale" content="es_MX" />
+    <meta property="og:site_name" content="emploi" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="emploi — Optimiza tu CV. Consigue Entrevistas." />
+    <meta name="twitter:description" content="Agencia digital para imagen laboral y corporativa. CVs, LinkedIn, Branding y más." />
+    <meta name="twitter:image" content="https://emploi.com/og-image.jpg" />
+
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%23df1e1e'/><text x='50%' y='55%' dominant-baseline='central' text-anchor='middle' font-family='system-ui,sans-serif' font-weight='800' font-size='22' fill='white'>e</text></svg>"
+    />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "ProfessionalService",
+        "name": "emploi",
+        "description": "Agencia digital para imagen laboral y corporativa. CVs, LinkedIn, Branding y más.",
+        "url": "https://emploi.com",
+        "telephone": "+528448704878",
+        "email": "hola@emploi.com",
+        "areaServed": "MX",
+        "priceRange": "$$",
+        "serviceType": ["CV profesional", "Optimización LinkedIn", "Branding personal", "Traducción CV"],
+        "aggregateRating": {
+          "@type": "AggregateRating",
+          "ratingValue": "5",
+          "reviewCount": "850"
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>

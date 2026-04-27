@@ -1,0 +1,54 @@
+---
+---
+
+<section id="faq" class="b-faq" aria-labelledby="faq-heading">
+  <div class="b-container--sm">
+    <div class="b-section-label b-reveal">FAQ</div>
+    <h2 class="b-faq-h2 b-reveal b-reveal-delay-1" id="faq-heading">
+      Dudas <span style="color:var(--red)">antes</span> de decidir.
+    </h2>
+    <div class="b-faq-list" id="faq-list"></div>
+  </div>
+</section>
+
+<script>
+  const FAQS: [string, string][] = [
+    ['¿Cuánto tiempo tarda la entrega?',  'Entre 3 y 5 días hábiles desde confirmación y anticipo. Branding o servicios empresariales: 1–2 semanas.'],
+    ['¿Qué necesito para empezar?',       'Tu CV actual, descripción de objetivos profesionales y tipo de puesto. El resto lo guiamos nosotros.'],
+    ['¿Qué es un CV ATS?',               'Es el software que filtra CVs antes del reclutador humano. Optimizarlo aumenta tus probabilidades.'],
+    ['¿Hacen entregas internacionales?',  'Sí. Somos 100% digitales y ofrecemos traducción profesional ES→EN.'],
+    ['¿Formas de pago?',                  'Transferencia, depósito, tarjeta y plataformas digitales. Anticipo + liquidación.'],
+    ['¿Puedo pedir cambios?',             'Sí, incluye una ronda de validación con vista previa sin costo adicional.'],
+  ];
+
+  let openFAQ = 0;
+  const faqList = document.getElementById('faq-list')!;
+
+  function renderFAQ() {
+    faqList.innerHTML = FAQS.map(([q, a], i) => {
+      const open = i === openFAQ;
+      return `
+        <div class="b-faq-item${open ? ' b-faq-item--open' : ''}">
+          <button class="b-faq-btn" aria-expanded="${open}" data-faq="${i}"
+                  id="faq-btn-${i}" aria-controls="faq-ans-${i}">
+            <span class="b-faq-q">${q}</span>
+            <span class="b-faq-icon" aria-hidden="true">+</span>
+          </button>
+          <div class="b-faq-a-wrap${open ? ' b-faq-a-wrap--open' : ''}"
+               id="faq-ans-${i}" role="region" aria-labelledby="faq-btn-${i}">
+            <p class="b-faq-a">${a}</p>
+          </div>
+        </div>
+      `;
+    }).join('');
+
+    faqList.querySelectorAll<HTMLButtonElement>('.b-faq-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        openFAQ = openFAQ === Number(btn.dataset.faq) ? -1 : Number(btn.dataset.faq);
+        renderFAQ();
+      });
+    });
+  }
+
+  renderFAQ();
+</script>

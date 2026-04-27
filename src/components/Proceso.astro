@@ -1,0 +1,28 @@
+---
+const steps = [
+  { n: '01', t: 'Recepción',      d: 'Recibimos tu información y objetivos.' },
+  { n: '02', t: 'Confirmación',   d: 'Confirmación del servicio y anticipo.' },
+  { n: '03', t: 'Análisis & diseño', d: 'Análisis, redacción y diseño.' },
+  { n: '04', t: 'Vista previa',   d: 'Preview para validación.' },
+  { n: '05', t: 'Liquidación',    d: 'Pago del saldo final.' },
+  { n: '06', t: 'Entrega final',  d: 'Archivos sin marca de agua.' },
+];
+---
+
+<section id="proceso" class="b-proceso" aria-labelledby="proceso-heading">
+  <div class="b-container">
+    <div class="b-proceso-label b-reveal">El proceso</div>
+    <h2 class="b-proceso-h2 b-reveal b-reveal-delay-1" id="proceso-heading">
+      6 pasos. <span class="b-proceso-h2-block">Cero fricción.</span>
+    </h2>
+    <div class="b-steps">
+      {steps.map((step, i) => (
+        <div class={`b-step b-reveal b-reveal-delay-${Math.min(i + 1, 5)}`}>
+          <div class="b-step-n">{step.n}</div>
+          <h3 class="b-step-t">{step.t}</h3>
+          <p class="b-step-d">{step.d}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
