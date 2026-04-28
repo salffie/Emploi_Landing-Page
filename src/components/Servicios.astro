@@ -24,19 +24,22 @@
 <script>
   const SERVICES: Record<string, { name: string; price: string; desc: string; b: string }[]> = {
     cv: [
-      { name: 'CV Estándar',      price: '$XXX', desc: 'Diseño profesional con redacción optimizada.',          b: 'Primera impresión impecable' },
-      { name: 'CV ATS',           price: '$XXX', desc: 'Estructura optimizada para filtros automatizados.',      b: 'Supera sistemas de reclutamiento' },
-      { name: 'CV Harvard',       price: '$XXX', desc: 'Formato académico/corporativo de alto impacto.',         b: 'Perfil sólido en entornos formales' },
-      { name: 'LinkedIn',         price: '$XXX', desc: 'Optimización completa de perfil para reclutadores.',    b: '+ visibilidad y oportunidades' },
-      { name: 'Traducción ES→EN', price: '$XXX', desc: 'Adaptación profesional al inglés.',                     b: 'Alcance internacional' },
+      { name: 'CV Estándar',      price: '$199',       desc: 'Diseño profesional con redacción optimizada.',          b: 'Primera impresión impecable' },
+      { name: 'CV ATS',           price: '$250',       desc: 'Estructura optimizada para filtros automatizados.',      b: 'Supera sistemas de reclutamiento' },
+      { name: 'CV Harvard',       price: '$250',       desc: 'Formato académico/corporativo de alto impacto.',         b: 'Perfil sólido en entornos formales' },
+      { name: 'LinkedIn',         price: 'Desde $249', desc: 'Optimización completa de perfil para reclutadores.',    b: '+ visibilidad y oportunidades' },
+      { name: 'Traducción ES→EN', price: 'Consultar',  desc: 'Adaptación profesional al inglés.',                     b: 'Alcance internacional' },
+      { name: 'Paquete Ejecutivo',          price: '$450',       desc: 'CV Estándar + CV ATS en español.',                  b: 'Diseño visual / compatibilidad ATS' },
+      { name: 'Paquete Ejecutivo Bilingüe', price: '$700',       desc: 'CV Estándar + CV ATS en español e inglés.',         b: 'Postulación nacional e internacional' },
+      { name: 'Paquete CV + LinkedIn',      price: 'Desde $750', desc: 'CV profesional + optimización de perfil LinkedIn.', b: 'Presencia profesional completa' },
     ],
     corp: [
-      { name: 'CV Empresarial',   price: '$XXX', desc: 'Perfiles profesionales para empresas o equipos.',       b: 'Imagen alineada a negocio' },
-      { name: 'Branding',         price: '$XXX', desc: 'Identidad visual y materiales profesionales.',          b: 'Posicionamiento de marca' },
+      { name: 'CV Empresarial',   price: 'Consultar', desc: 'Perfiles profesionales para empresas o equipos.',       b: 'Imagen alineada a negocio' },
+      { name: 'Branding',         price: 'Consultar', desc: 'Identidad visual y materiales profesionales.',          b: 'Posicionamiento de marca' },
     ],
     design: [
-      { name: 'Redes Sociales',   price: '$XXX', desc: 'Contenido visual alineado a tu identidad.',            b: 'Mayor presencia digital' },
-      { name: 'Impresos',         price: '$XXX', desc: 'Tarjetas, flyers, lonas, menús.',                      b: 'Imagen tangible' },
+      { name: 'Redes Sociales',   price: 'Consultar', desc: 'Contenido visual alineado a tu identidad.',            b: 'Mayor presencia digital' },
+      { name: 'Impresos',         price: 'Consultar', desc: 'Tarjetas, flyers, lonas, menús.',                      b: 'Imagen tangible' },
     ],
   };
 
