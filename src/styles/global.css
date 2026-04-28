@@ -111,7 +111,7 @@ button { font-family: inherit; }
 /* ─── HERO ───────────────────────────────────────────────────────────────── */
 .b-hero {
   background: var(--red); color: var(--white);
-  padding: 100px 40px 120px;
+  padding: 30px 40px 0px;
   position: relative; overflow: hidden;
 }
 .b-hero-watermark {
@@ -141,15 +141,20 @@ button { font-family: inherit; }
   margin-bottom: 40px; color: var(--white);
 }
 .b-hero-h1-block {
-  background: var(--black); color: var(--white); padding: 0 24px;
+  background: var(--black); color: var(--white); padding: 4px 20px;
   display: inline-block; margin-top: 8px;
 }
-.b-hero-grid {
-  display: grid; grid-template-columns: 1.2fr 1fr; gap: 80px; align-items: end;
+.b-hero-main {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center;
+  margin-bottom: 0;
 }
+.b-hero-left { display: flex; flex-direction: column; }
+.b-hero-right { display: flex; align-items: center; justify-content: center; }
+.b-hero-mockup { width: 108%; max-width: 702px; object-fit: contain; transform: translateY(-60px); }
 .b-hero-sub {
-  font-size: 22px; line-height: 1.45; font-weight: 500;
-  color: rgba(255,255,255,0.95); max-width: 640px;
+  font-size: 18px; line-height: 1.5; font-weight: 500;
+  color: rgba(255,255,255,0.95); max-width: 520px;
+  margin-bottom: 32px;
 }
 .b-hero-btn {
   background: var(--black); color: var(--white); padding: 22px 32px;
