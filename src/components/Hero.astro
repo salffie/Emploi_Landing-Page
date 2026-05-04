@@ -1,5 +1,6 @@
 ---
 const WA_URL = 'https://wa.me/528448704878';
+const cvHeroSrc = `${import.meta.env.BASE_URL}/assets/img/CV-Hero.png`.replace(/\/+/g, '/');
 ---
 
 <section class="b-hero" aria-labelledby="hero-heading">
@@ -15,7 +16,7 @@ const WA_URL = 'https://wa.me/528448704878';
           Optimiza<br />
           tu CV.<br />
           <span class="b-hero-h1-block">Consigue</span>
-          <span class="b-hero-h1-block">Entrvistas.</span>
+          <span class="b-hero-h1-block">Entrevistas.</span>
         </h1>
         <p class="b-hero-sub b-reveal b-reveal-delay-2">
           Transformamos tu perfil profesional con estrategias de Recursos Humanos,
@@ -29,7 +30,7 @@ const WA_URL = 'https://wa.me/528448704878';
         </div>
       </div>
       <div class="b-hero-right b-reveal b-reveal-delay-2">
-        <img src={`${import.meta.env.BASE_URL}assets/img/CV-Hero.png`} alt="Ejemplos de CV optimizados por Emploi" class="b-hero-mockup" />
+        <img src={cvHeroSrc} alt="Ejemplos de CV optimizados por Emploi" class="b-hero-mockup" />
       </div>
     </div>
     <div class="b-stats" role="list" aria-label="Estadísticas de emploi">
@@ -43,7 +44,7 @@ const WA_URL = 'https://wa.me/528448704878';
       </div>
       <div class="b-stat b-reveal b-reveal-delay-3" role="listitem">
         <div class="b-stat-n">8 AÑOS</div>
-        <div class="b-stat-l">experiencia</div>
+        <div class="b-stat-l">posicionando profesionales</div>
       </div>
       <div class="b-stat b-reveal b-reveal-delay-4" role="listitem">
         <div class="b-stat-n">100%</div>
